@@ -58,7 +58,7 @@ int main(int argc, const char* argv[])
 			string subData; 
 			while (getline(cin, subData))
 			{	
-			    expectedInput += subData; 
+			    expectedInput += subData + "\n"; 
 			    if(subData == ";"){
 			    	break; 
 			    }
@@ -71,7 +71,7 @@ int main(int argc, const char* argv[])
 			subData = ""; 
 			while (getline(cin, subData))
 			{	
-			    expectedOutput += subData; 
+			    expectedOutput += subData + "\n"; 
 			    if(subData == ";"){
 			    	break; 
 			    }
