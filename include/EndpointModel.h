@@ -10,7 +10,7 @@ class EndpointModel{
 	std::string remarks; 
 
 	public:
-		void setEndpoint(std::string e){endpoint = e; };
+		void setEndpoint(std::string e){endpoint = e;}; 
 		void setTitle(std::string e){title = e; };
 		void setDescription(std::string e){description = e; };
 		void setExpectedInput(std::string e){expectedInput = e; };
@@ -18,11 +18,14 @@ class EndpointModel{
 		void setRemarks(std::string e){remarks = e; };
 
 		std::string getEndpoint(){return endpoint; };
-		std::string setTitle(){return title;};
-		std::string setDescription(){return description;};
-		std::string setExpectedInput(){return expectedInput;};
-		std::string setExpectedOutput(){return expectedOutput;};
-		std::string setRemarks(){return remarks; };
+		std::string getTitle(){return title;};
+		std::string getDescription(){return description;};
+		std::string getExpectedInput(){return expectedInput;};
+		std::string getExpectedOutput(){return expectedOutput;};
+		std::string getRemarks(){return remarks; };
 
 		std::string toLatex(); 
+		std::string toJson(bool isFirstOne); 
+		void setEndpointData(std::string e); 
+		std::string prettyfy(std::string json); 
 }; 

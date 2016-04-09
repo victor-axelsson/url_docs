@@ -8,3 +8,13 @@ all:
 
 clean:
 	rm main
+
+pdf:
+	./url_docs pdf
+	pdflatex ./res/documentation.tex
+	pdflatex ./res/documentation.tex
+	rm documentation.aux documentation.dvi documentation.log documentation.toc
+
+json:
+	./url_docs json
+	cp ./res/documentation.json ./documentation.json

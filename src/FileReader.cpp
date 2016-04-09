@@ -55,10 +55,25 @@ void FileReader::prepare(){
 	outfile.close(); 
 }
 
+
+void FileReader::prepareJson(){
+	std::ofstream outfile;
+	outfile.open(jsonPath);
+	outfile << "["; 
+	outfile.close(); 
+}
+
 void FileReader::end(){
 	std::ofstream outfile;
 	outfile.open(texPath, ios::out | ios::app);
 	outfile << "\\end{document}"; 
+	outfile.close(); 
+}
+
+void FileReader::endJson(){
+	std::ofstream outfile;
+	outfile.open(jsonPath, ios::out | ios::app);
+	outfile << "]"; 
 	outfile.close(); 
 }
 
@@ -69,3 +84,11 @@ void FileReader::addToTexFile(string texmodel){
 	outfile << texmodel; 
 	outfile.close(); 
 } 
+
+void FileReader::addToJsonFile(std::string jsonmodel){
+	std::ofstream outfile;
+
+	outfile.open(jsonPath, ios::out | ios::app);
+	outfile << jsonmodel; 
+	outfile.close(); 
+}

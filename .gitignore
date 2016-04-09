@@ -3,3 +3,8 @@ res/tmp.txt
 res/documentation.tex
 url_docs
 documentation.pdf
+.*
+!.gitignore
+res/documentation.json
+documentation.json
+url_docs.dSYM
