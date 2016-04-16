@@ -46,6 +46,14 @@ int main(int argc, const char* argv[])
 			std::unique_ptr<EndpointModel> model(new EndpointModel());
 			model->setEndpointData(endpoint); 
 			
+			if(model->getEndpoint().length() <= 0){
+				cout << "Endpoint url: "; 
+				string url; 
+				getline(cin, url);
+				model->setEndpoint(url); 
+				cout <<endl; 
+			}
+
 			if(model->getTitle().length() <= 0){
 				cout << "Title: "; 
 				string title; 
