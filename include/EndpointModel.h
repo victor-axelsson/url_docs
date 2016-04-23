@@ -24,7 +24,9 @@ class EndpointModel{
 		std::string getExpectedOutput(){return expectedOutput;};
 		std::string getRemarks(){return remarks; };
 
-		std::string toLatex(); 
+		std::string toLatex();
+		void latexParse(std::string& subject); 
+		void ReplaceStringInPlace(std::string& subject, const std::string& search, const std::string& replace);
 		std::string toJson(bool isFirstOne); 
 		void setEndpointData(std::string e); 
 		std::string prettyfy(std::string json); 

@@ -104,8 +104,40 @@ std::string EndpointModel::prettyfy(std::string json){
 	return formatted; 
 }
 
+void EndpointModel::ReplaceStringInPlace(std::string& subject, const std::string& search, const std::string& replace) {
+    size_t pos = 0;
+    while ((pos = subject.find(search, pos)) != std::string::npos) {
+         subject.replace(pos, search.length(), replace);
+         pos += replace.length();
+    }
+}
+
+void EndpointModel::latexParse(std::string& subject){
+	ReplaceStringInPlace(subject, "&", "\\&");
+	ReplaceStringInPlace(subject, "%", "\\%");
+	ReplaceStringInPlace(subject, "$", "\\$");
+	ReplaceStringInPlace(subject, "#", "\\#");
+	ReplaceStringInPlace(subject, "_", "\\_");
+	ReplaceStringInPlace(subject, "\\r", "");
+	ReplaceStringInPlace(subject, "\\n", "");
+	
+	ReplaceStringInPlace(subject, "{", "\\{");
+	ReplaceStringInPlace(subject, "}", "\\}");
+
+	ReplaceStringInPlace(subject, "~", "\\texttt{\\~{}}");
+	ReplaceStringInPlace(subject, "^", "\\^{}");
+	//ReplaceStringInPlace(subject, "\\", "$\\backslash$");	         
+}
 
 std::string EndpointModel::toLatex(){
+
+	latexParse(title); 
+	latexParse(description); 
+	latexParse(endpoint); 
+	latexParse(remarks); 
+	//latexParse(expectedInput);
+	//latexParse(expectedOutput); 
+
 	string latex = "\\subsection{"+title+"} \n";
 
 	latex +=  description + "\n";

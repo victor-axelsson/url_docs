@@ -1,5 +1,7 @@
 res/endpoints.txt
+src/endpoints.txt
 res/tmp.txt
+src/documentation.tex
 res/documentation.tex
 url_docs
 documentation.pdf
