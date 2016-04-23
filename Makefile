@@ -5,9 +5,15 @@ FLAGS=-std=c++11 -Wall -g
 
 all: 
 	$(CC) $(SRC) -o url_docs -I include $(FLAGS)
+	if [ ! -f "res/endpoints.txt" ]; then echo ";;;;;" > "res/endpoints.txt"; fi
 
 clean:
-	rm main
+	rm url_docs  
+	rm documentation.pdf
+	rm documentation.json
+	rm res/endpoints.txt
+	rm res/documentation.json
+	rm res/documentation.tex
 
 pdf:
 	./url_docs pdf
